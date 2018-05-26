@@ -11,9 +11,9 @@ class PruebasController extends Controller
 
     public function indexAction(Request $request, $name, $page)
     {
-        var_dump($request->query->get("hola"));
+        /*var_dump($request->query->get("hola"));
         var_dump($request->get("holaPost"));
-        exit;
+        exit;*/
 
         // replace this example code with whatever you need
         return $this->render('AppBundle:Pruebas:index.html.twig', array(
