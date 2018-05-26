@@ -9,11 +9,11 @@ use Symfony\Component\HttpFoundation\Request;
 class PruebasController extends Controller
 {
 
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, $name, $page)
     {
         // replace this example code with whatever you need
         return $this->render('AppBundle:Pruebas:index.html.twig', array(
-            'texto' => "Enviando desde el controller",
+            'texto' => $name." ".$page,
         ));
     }
 }
