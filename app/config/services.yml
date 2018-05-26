@@ -6,6 +6,11 @@ parameters:
 services:
   app.twig_extension:
     class: AppBundle\Twig\HelperVistas
-    public: false
+    public: true
+    tags:
+      - { name: 'twig.extension' }
+  app.twig_filter_vista:
+    class: AppBundle\Twig\FilterVista
+    public: true
     tags:
       - { name: 'twig.extension' }

@@ -2,7 +2,7 @@
 
 namespace AppBundle\Twig;
 
-class HelperVistas extends \TwigExtension{
+class HelperVistas extends \Twig_Extension{
 
 	public function getFunctions(){
 		return array(
@@ -16,7 +16,7 @@ class HelperVistas extends \TwigExtension{
 		for ($i=0; $i <= $num_rows ; $i++) { 
 			$tabla .= "<tr>";
 			for ($j=0; $j <= $num_columns ; $j++) { 
-				$table .= "<td>Columna</td>";
+				$tabla .= "<td>Columna</td>";
 			}
 			$tabla .= "</tr>";
 		}
