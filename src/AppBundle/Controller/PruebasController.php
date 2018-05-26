@@ -136,12 +136,28 @@ class PruebasController extends Controller
         exit;
     }
 
-    public function formAction(){
+    public function formAction(Request $request){
         $curso = new Curso();
         $form = $this->createForm(CursoType::class, $curso);
 
+        $form->handleRequest($request);
+        if($form->isValid()){
+            $status = "Formulario válido";
+            $data = array(
+                'titulo' => $form->get("titulo")->getData(),
+                'descripcion' => $form->get("descripcion")->getData(),
+                'precio' => $form->get("precio")->getData()
+            );
+
+        }else{
+            $status = null;
+            $data = null;
+        }
+
         return $this->render('AppBundle:Pruebas:form.html.twig', array(
             'form' => $form->createView(),
+            'status' => $status,
+            'data' => $data
         ));
     }
 }
