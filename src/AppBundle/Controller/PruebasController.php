@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 //Modelos
 use AppBundle\Entity\Curso;
 
+//Formularios
+use AppBundle\Form\CursoType;
+
 class PruebasController extends Controller
 {
 
@@ -131,5 +134,14 @@ class PruebasController extends Controller
             echo "El curso se ha borrado correctamente";
         }
         exit;
+    }
+
+    public function formAction(){
+        $curso = new Curso();
+        $form = $this->createForm(CursoType::class, $curso);
+
+        return $this->render('AppBundle:Pruebas:form.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 }
