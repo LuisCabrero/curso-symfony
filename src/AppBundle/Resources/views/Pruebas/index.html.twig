@@ -1,4 +1,17 @@
 {% extends '::layout.html.twig' %}
 {% block container %}
 	{{ texto }}
+	<hr>
+	{{ fruta.manzana }}
+	<hr>
+	{% set variable = "Hola Twig" %}
+	{{ variable }}
+	<hr>
+	{% if productos|length > 0 %}
+		<ul>
+			{% for producto in productos %}
+				<li>{{ producto.producto }} - {{ producto.precio }}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
 {% endblock %}
