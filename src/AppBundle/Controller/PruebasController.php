@@ -59,11 +59,35 @@ class PruebasController extends Controller
         $cursos_repo = $em->getRepository("AppBundle:Curso");
         $cursos = $cursos_repo->findAll();
 
-        foreach ($cursos as $key => $curso) {
+        $cursos_80 = $cursos_repo->findBy(array("precio"=>80));
+
+        //Se puede hacer también findOneByPrecio(80)
+
+        foreach ($cursos_80 as $key => $curso) {
             echo $curso->getTitulo().'<br>';
             echo $curso->getDescripcion().'<br>';
             echo $curso->getPrecio().'<br><hr>';
         }
+
+        echo "<h1>Pruebas con el query builder</h1>";
+
+        //DQL
+
+        $cursos_repo = $em->getRepository("AppBundle:Curso");
+
+        $query = $cursos_repo->createQueryBuilder("c")
+            ->where("c.precio > :precio")
+            ->setParameter("precio", 79)
+            ->getQuery();
+
+        $cursos = $query->getResult();
+
+        foreach ($cursos_80 as $key => $curso) {
+            echo $curso->getTitulo().'<br>';
+            echo $curso->getDescripcion().'<br>';
+            echo $curso->getPrecio().'<br><hr>';
+        }
+
         exit;
     }
 
