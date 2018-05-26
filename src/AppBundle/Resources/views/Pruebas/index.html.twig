@@ -14,4 +14,17 @@
 			{% endfor %}
 		</ul>
 	{% endif %}
+	<hr>
+	{% set fecha = date("-2 days", "Europe/Madrid") %}
+	{{ dump(fecha) }}
+	<hr>
+	{{ include('AppB	undle::partial.html.twig') }}
+	<hr>
+	{{max([76,99,58])}}
+	<hr>
+	{{min([76,99,58])}}
+	<hr>
+	{{random(100)}}
+	<hr>
+	{{generateTable(5,5)|raw}}
 {% endblock %}
