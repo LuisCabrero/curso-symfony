@@ -88,6 +88,10 @@ class PruebasController extends Controller
             echo $curso->getPrecio().'<br><hr>';
         }
 
+        //Pasando la lógica al modelo
+        $cursos = $cursos_repo->getCursos();
+
+
         exit;
     }
 
